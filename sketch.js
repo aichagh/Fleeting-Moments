@@ -1,9 +1,15 @@
-let trails, dayTemp, savedTime, minTemp, secTemp, arrows;
+let trails, dayTemp, minTemp, secTemp, hourTemp, arrows;
 let totalTime = 100;
 let hourChange = false;
 let bgColor = 0;
 let tickHappened = false;
 let tickCircle = 300;
+let pendelumX;
+let pendelumY = 0;
+let angleNext = 0;
+let angleInc = 0.05;
+let radPendelum;
+let pendelumDone = 0;
 
 
 function setup() {
@@ -16,6 +22,10 @@ function setup() {
   dayTemp = day();
   minTemp = minute();
   secTemp = second();
+  hourTemp = hour();
+
+  pendelumX = windowWidth / 2;
+  radPendelum = windowWidth / 4;
 
   v0 = createVector(100, 100);
   v1 = createVector(70, 0);
@@ -29,7 +39,7 @@ function draw() {
   // filter(BLUR, 0.05);
 
   for(const trail of trails){
-    trail.step();
+    trail.logic();
     trail.draw();
   }
 
@@ -48,6 +58,7 @@ function draw() {
     minTemp = minute();
     tickHappened = true;
   }
+
   if(tickHappened && tickCircle != 0) {
     push();
     noStroke();
@@ -59,4 +70,30 @@ function draw() {
     tickHappened = false
     tickCircle = 300;
   }
+
+  if(hourTemp != hour()) {
+    hourChange = true;
+    hourTemp = hour()
+  }
+
+  if(hourChange && pendelumDone != 100) {
+    push();
+    noStroke();
+    circle( pendelumX + radPendelum * cos(angleNext), 
+            pendelumY + radPendelum * sin(angleNext),
+            60);
+    angleNext += angleInc;
+    pendelumDone++
+    pop();
+  } else if (hourChange && pendelumDone == 100) {
+    hourChange = false;
+    pendelumX = width / 2;
+    pendelumY = 0;
+    angleNext = 0;
+    angleInc = 0.05;
+    radPendelum = width / 4;
+    pendelumDone = 0;
+  }
+
+
 }

@@ -16,7 +16,7 @@ class Trail {
     this.maybeDoneLooping = false;
   }
 
-  step() {
+  logic() {
 
     if(this.looping){
       this.heading += this.loopingSpeed + sin(this.offset + frameCount * .1) * .05;
@@ -48,7 +48,7 @@ class Trail {
     this.x += cos(this.heading) * this.speed;
     this.y += sin(this.heading) * this.speed;
 
-    // if a trail goes off screen, re-spawn at a random
+    // respawn if off screen
     if(this.x < 0 || this.x > width || this.y < 0 || this.y >height){
       this.x = random(width);
       this.y = random(height);
