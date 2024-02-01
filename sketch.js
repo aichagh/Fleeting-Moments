@@ -78,6 +78,9 @@ function draw() {
 
   if(hourChange && pendelumDone != 100) {
     push();
+    line(width / 2, 0, 
+        pendelumX + radPendelum * cos(angleNext), 
+        pendelumY + radPendelum * sin(angleNext))
     noStroke();
     circle( pendelumX + radPendelum * cos(angleNext), 
             pendelumY + radPendelum * sin(angleNext),
@@ -94,6 +97,4 @@ function draw() {
     radPendelum = width / 4;
     pendelumDone = 0;
   }
-
-
 }
