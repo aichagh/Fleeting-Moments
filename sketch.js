@@ -27,7 +27,7 @@ function setup() {
   pendelumX = windowWidth / 2;
   radPendelum = windowWidth / 4;
 
-  v0 = createVector(100, 100);
+  // v0 = createVector(100, 100);
   v1 = createVector(70, 0);
 }
 

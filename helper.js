@@ -11,12 +11,12 @@ function tick(min) {
   let angleShift = PI / (min - 1)
   for(let x = 0; x < min; x++ ) {
     v1.rotate(angle);
-    drawArrow(v0, v1, 'white');
+    drawArrow(v1, 'white');
     angle += angleShift
   }
 }
 
-function drawArrow(base, vec, myColor) {
+function drawArrow(vec, myColor) {
   push();
   // colors / stroke
   stroke(myColor);
