@@ -9,8 +9,6 @@ class Color {
 // Palette generator
 // adapted from http://devmag.org.za/2012/07/29/how-to-choose-colours-procedurally-algorithms/
 
-// takes 3 colors to generate a palette
-
 function RandomMix(day, month, year, greyControl)
  {
     let randomIndex = random(0, 3);

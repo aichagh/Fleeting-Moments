@@ -1,5 +1,5 @@
-// Adapted from :
-// https://happycoding.io/tutorials/p5js/creating-classes/loopers
+// Trail class
+// Adapted from : https://happycoding.io/tutorials/p5js/creating-classes/loopers
 
 class Trail {
 

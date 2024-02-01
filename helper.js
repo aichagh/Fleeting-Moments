@@ -8,11 +8,18 @@ function dayChange (day){
 
 function tick(min) {
   let angle = 0;
-  let angleShift = PI / (min - 1)
-  for(let x = 0; x < min; x++ ) {
-    v1.rotate(angle);
-    drawArrow(v1, 'white');
-    angle += angleShift
+  if(!(min == 0)) {
+    
+    let angleShift = PI / min
+    if(!(min == 1)) {
+      angleShift = PI / (min - 1)
+    }
+
+    for(let x = 0; x < min; x++ ) {
+      v1.rotate(angle);
+      drawArrow(v1, 'white');
+      angle += angleShift
+    }
   }
 }
 

@@ -27,7 +27,6 @@ function setup() {
   pendelumX = windowWidth / 2;
   radPendelum = windowWidth / 4;
 
-  // v0 = createVector(100, 100);
   v1 = createVector(70, 0);
 }
 
@@ -36,7 +35,6 @@ function draw() {
   dayChange(day());
   strokeWeight(month());
   background(bgColor, month());
-  // filter(BLUR, 0.05);
 
   for(const trail of trails){
     trail.logic();
